@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .d-block {
+        height: 200px;
+        object-fit: cover;
+      }
+      .navbar {
+        background-color: #fdd835; /* yellow */
+      }
+      .navbar-brand,
+      .nav-link {
+        color: black !important;
+      }
+      .system-description {
+        margin: 40px 0;
+      }
+    </style>
+</head>
+<body>
+     <div class="container p-4">
+        <div>
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="/pat_reg4.jpg"
+                class="d-block w-100"
+                alt="Patient Registration"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/pat_reg5.jpg"
+                class="d-block w-100"
+                alt="Hospital Image"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="/pat_reg6.jpg"
+                class="d-block w-100"
+                alt="Doctor Consultation"
+              />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg mt-3">
+          <div class="container">
+            <a class="navbar-brand" href="/">Patient System</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavAltMarkup"
+              aria-controls="navbarNavAltMarkup"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/register">Register Patient</a>
+                <a class="nav-link" href="/appointments/book"
+                  >Book Appointment</a
+                >
+                <a class="nav-link" href="/login">Login</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h3 class="text-center mb-4">Doctor Login</h3>
+            <form th:action="@{/login}" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+
+                <div th:if="${param.error}" class="mt-2 alert alert-danger">
+                    Invalid username or password.
+                </div>
+                <div th:if="${param.logout}" class="mt-2 alert alert-success">
+                    You have been logged out.
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

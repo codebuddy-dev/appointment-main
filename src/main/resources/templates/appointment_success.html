@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Appointment Confirmation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+
+    <div class="alert alert-success">
+        <h2>Appointment Booked Successfully!</h2>
+        <p>Your appointment has been confirmed. Here are the details:</p>
+
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Appointment ID:</strong> <span th:text="${appointment.appointmentId}"></span></li>
+            <li class="list-group-item"><strong>Patient ID:</strong> <span th:text="${appointment.patient.registrationId}"></span></li>
+            <li class="list-group-item"><strong>Date:</strong> <span th:text="${appointment.appointmentDate}"></span></li>
+            <li class="list-group-item"><strong>Time Slot:</strong> <span th:text="${appointment.timeSlot}"></span></li>
+            <li class="list-group-item"><strong>Doctor:</strong> <span th:text="${appointment.doctor.doctorName}"></span></li>
+            <li class="list-group-item"><strong>Department:</strong> <span th:text="${appointment.department.departmentName}"></span></li>
+            <li class="list-group-item"><strong>Hospital:</strong> <span th:text="${appointment.hospital.hospitalName}"></span></li>
+        </ul>
+
+        <a href="/" class="btn btn-primary mt-3">Go to Home</a>
+    </div>
+
+</body>
+</html>
